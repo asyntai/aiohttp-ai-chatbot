@@ -1,0 +1,28 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - python: "3.10"
+            deps: 'aiohttp==3.8.* aiohttp-jinja2==1.5.* pytest-aiohttp==1.0.*'
+          - python: "3.13"
+            deps: "aiohttp aiohttp-jinja2 pytest-aiohttp"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: pip install ${{ matrix.deps }} pytest
+      - run: pip install -e .
+      - run: python -m pytest -q

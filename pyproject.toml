@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aiohttp-ai-chatbot"
+version = "1.0.0"
+description = "Adds the Asyntai AI chat assistant to aiohttp sites. It answers visitor questions from your own content, in more than 80 languages."
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Asyntai", email = "hello@asyntai.com" }]
+keywords = ["aiohttp", "asyncio", "middleware", "chatbot", "ai", "ai-chatbot", "live-chat", "customer-support", "widget"]
+dependencies = ["aiohttp>=3.8"]
+
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Environment :: Web Environment",
+    "Framework :: AsyncIO",
+    "Framework :: aiohttp",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+]
+
+[project.urls]
+Homepage = "https://asyntai.com"
+Documentation = "https://asyntai.com/documentation/integrations/aiohttp/"
+Source = "https://github.com/asyntai/aiohttp-ai-chatbot"
+Issues = "https://github.com/asyntai/aiohttp-ai-chatbot/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
